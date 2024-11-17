@@ -12,7 +12,7 @@ def extract_text(image_url):
 
     message = HumanMessage(
         content=[
-            {"type": "text", "text": "identify the road sign in the image notify the user with the message. provide the final message or notification to the user in a dictionary format"},
+            {"type": "text", "text": "identify the road sign in the image notify the user with the message. provide the final message or notification to the user."},
             {
                 "type": "image_url",
                 "image_url": image_url,
