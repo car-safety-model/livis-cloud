@@ -8,11 +8,8 @@ router = APIRouter()
 def detect_signboard(request: SignDetectionRequest):
     try:
         image_url = request.image_url
-        local_image_path = "downloaded_image.jpg"
         
-
-        download_image(image_url, local_image_path)
-        sign_text = extract_text_from_image(local_image_path)
+        sign_text = extract_text(image_url)
         print(sign_text)
         if sign_text:
             return {"alert": True, "message": f"follow: {sign_text}"}

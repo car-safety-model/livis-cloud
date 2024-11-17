@@ -1,31 +1,25 @@
-import requests
-from PIL import Image
-from io import BytesIO
-import pytesseract
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.messages import HumanMessage
+import os
+from dotenv import load_dotenv
+import streamlit as st
 
-def download_image(url, save_path):
-    """
-    Downloads an image from a URL and saves it locally.
-    
-    :param url: str, the URL of the image
-    :param save_path: str, the local path to save the image
-    """
-    response = requests.get(url)
-    if response.status_code == 200:
-        with open(save_path, 'wb') as file:
-            file.write(response.content)
-        print(f"Image downloaded and saved to {save_path}")
-    else:
-        print(f"Failed to download image. Status code: {response.status_code}")
+load_dotenv()
 
-def extract_text_from_image(image_path):
-    """
-    Extracts text from an image using pytesseract.
-    
-    :param image_path: str, the path to the image file
-    :return: str, extracted text
-    """
-    image = Image.open(image_path)
-    text = pytesseract.image_to_string(image)
-    return text
+def extract_text(image_url):
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-1.5-flash", api_key=os.getenv("GEMINI_API_KEY")
+    )
 
+    message = HumanMessage(
+        content=[
+            {"type": "text", "text": "identify the road sign in the image notify the user with the message"},
+            {
+                "type": "image_url",
+                "image_url": image_url,
+            },
+        ]
+    )
+    ai_msg = llm.invoke([message])
+
+    return ai_msg.content

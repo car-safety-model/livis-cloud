@@ -1,8 +1,11 @@
-
+requests
 fastapi
 uvicorn
 pydantic
 opencv-python
 pytesseract
-tesseract-ocr
-libtesseract-dev
+langchain-google-genai
+python-dotenv
+langchain-community
+langchain_experimental
+google-generativeai
