@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 class CarRegistration(BaseModel):
     car_id: str
-    position: str
+    position: float
     speed: float
 
 class PositionUpdate(BaseModel):
