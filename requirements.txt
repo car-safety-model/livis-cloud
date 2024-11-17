@@ -4,3 +4,5 @@ uvicorn
 pydantic
 opencv-python
 pytesseract
+tesseract-ocr
+libtesseract-dev
