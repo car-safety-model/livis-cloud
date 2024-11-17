@@ -1,9 +1,8 @@
 
-# Car Safety System API
+# LIVIS Car Safety System API
 
 ## Overview
 
-This project demonstrates a dummy working of a car safety system using FastAPI. 
 It includes the following features:
 1. **Collision Detection** using wireless communication between cars.
 2. **Route Mapping** based on frequent following paths.
@@ -94,7 +93,7 @@ CarSafetySystem/
 **Payload**:
 ```json
 {
-    "image_path": "path/to/sign_image.jpg"
+    "image_url": "http://xyz.com/sign_image.jpg"
 }
 ```
 
@@ -108,8 +107,6 @@ CarSafetySystem/
 - **FastAPI**: For building the RESTful APIs
 - **Pydantic**: For data validation
 - **OpenCV**: For image processing
-- **Tesseract**: For Optical Character Recognition (OCR)
-
-## License
-
-This project is for educational purposes and demonstration only.
+- **AWS**: For cloud infra
+- **IOT devices**: For sensors integration
+- **AI/ML**: For analyzing routes and patterns
